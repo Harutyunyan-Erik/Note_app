@@ -30,12 +30,12 @@ main .workspace {
   padding: 50px;
   background: none;
 }
-main .workspace > input,
+main .workspace > textarea,
 main .workspace button {
   border-radius: 20px;
   display: grid;
   text-align: start;
-  height: 250px;
+  height: 220px;
   background: none;
   border-color: none;
 }
@@ -53,13 +53,14 @@ main .workspace button:hover {
   background-color: #f2f0f0c0;
   color: black;
 }
-main .workspace > input {
+main .workspace > textarea {
+  padding: 15px;
   outline: none;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition-duration: 0.3s;
   font-size: 22px;
 }
-main .workspace > input:hover {
+main .workspace > textarea:hover {
   box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.8);
 }
