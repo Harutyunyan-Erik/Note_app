@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to left, lightblue, lightgreen);
+    font-family: "Courier New", Courier, monospace;
+}
+
+main{
+    // display: grid;
+    justify-content: center;
+    .heading{
+        text-align: center;
+        margin-top: 50px;
+        color: darkblue;
+        font-size: 44px;
+        background: none;
+    }
+    .user_info{
+        text-align: center;
+        margin-top: 20px;
+        color: darkblue;
+        background: none;
+    }
+    .workspace{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 360px);
+        grid-auto-rows: 250px;
+        max-width: 1500px;
+        gap: 20px;
+        justify-content: center;
+        padding: 50px;
+        background: none;
+        >input, button{
+            border-radius: 20px;
+            display: grid;
+            text-align: start;
+            height: 250px;
+            background: none;
+            border-color: none;
+        }
+        >button{
+            font-size: 100px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.27);
+            opacity: 0.6;
+            transition-duration: 0.3s;
+            color: grey;
+        }
+        button:hover{
+            opacity: 0.9;
+            background-color: #f2f0f0c0;
+            color: black;
+        }
+        >input{
+            outline: none;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition-duration: 0.3s;
+            font-size: 22px;
+        }
+        >input:hover{
+            box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.8);
+        }
+    }
+}
