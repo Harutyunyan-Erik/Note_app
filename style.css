@@ -5,6 +5,7 @@
   font-family: "Courier New", Courier, monospace;
 }
 main {
+  display: grid;
   justify-content: center;
 }
 main .heading {
@@ -47,6 +48,7 @@ main .workspace > button {
   opacity: 0.6;
   transition-duration: 0.3s;
   color: grey;
+  height: auto;
 }
 main .workspace button:hover {
   opacity: 0.9;
