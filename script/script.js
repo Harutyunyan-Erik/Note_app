@@ -1,9 +1,14 @@
 import { btn, workspace, textArea, notes } from "./constants.js";
+import { createListener } from "./helpers.js";
+
 const taskList = JSON.parse(localStorage.getItem('taskList')) || [];
 
-function noteCreator() {
-    const newTextArea = document.createElement('textarea'); 
+function noteCreator(e) {
+    e.preventDefault();
+
+    const newTextArea = textArea; 
     newTextArea.className = "notes";
+    newTextArea.id = "notes";
     newTextArea.placeholder = "Empty Note";
     workspace.appendChild(newTextArea); 
     workspace.appendChild(btn);
@@ -15,9 +20,10 @@ function noteCreator() {
     }); 
     taskList.push(newTextArea.value); 
     changeLocalStorage();
+    console.log(notes.value);
 }
-
-btn.addEventListener("click", noteCreator);
+createListener("btn", "click", noteCreator);
+// btn.addEventListener("click", noteCreator);
 
 function removeNote(textArea) {
     const index = taskList.indexOf(textArea.value); 
@@ -30,4 +36,16 @@ function changeLocalStorage(){
     localStorage.setItem('taskList', JSON.stringify(taskList));
 }
 
+function safeLocalStorage(){
+    // localStorage.setItem(notes.value);
+    taskList.push(notes.value);
+    changeLocalStorage();
+    removeNote();
+}
+
+safeLocalStorage();
+
 console.log(taskList);
+console.log(notes.value);
+
+
