@@ -1,4 +1,3 @@
-
 import { btn, workspace, textArea, notes } from "./constants.js";
 const taskList = JSON.parse(localStorage.getItem('taskList')) || [];
 
@@ -8,17 +7,22 @@ function noteCreator() {
     newTextArea.placeholder = "Empty Note";
     workspace.appendChild(newTextArea); 
     workspace.appendChild(btn);
-    newTextArea.addEventListener("dblclick", removeNote); 
+    newTextArea.addEventListener("dblclick", () => {
+        const confirmQuestion = confirm("Do you want to delete this note?");
+        if(confirmQuestion){
+            removeNote(newTextArea);
+        }
+    }); 
     taskList.push(newTextArea.value); 
     changeLocalStorage();
 }
 
 btn.addEventListener("click", noteCreator);
 
-function removeNote(e) {
-    const index = taskList.indexOf(e.target.value); 
+function removeNote(textArea) {
+    const index = taskList.indexOf(textArea.value); 
     taskList.splice(index, 1); 
-    e.target.remove();
+    textArea.remove();
     changeLocalStorage();
 }
 

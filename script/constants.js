@@ -1,5 +1,11 @@
-export const workspace = document.getElementById("workspace");
-export const btn = document.getElementById("btn");
-export const notes = document.getElementById("notes");
-export const textArea = document.createElement("textarea");
+const workspace = document.getElementById("workspace");
+const btn = document.getElementById("btn");
+const notes = document.getElementById("notes");
+const textArea = document.createElement("textarea");
 
+export {
+    workspace,
+    btn,
+    notes,
+    textArea
+}
