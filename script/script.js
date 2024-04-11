@@ -1,31 +1,29 @@
-import { btn, workspace, notes, textArea } from "./constants.js";
-const taskList = JSON.parse(localStorage.getItem('tasklist')) || [] ;
 
+import { btn, workspace, textArea, notes } from "./constants.js";
+const taskList = JSON.parse(localStorage.getItem('taskList')) || [];
 
 function noteCreator() {
-    textArea.className = "notes";
-    textArea.placeholder = "Empty Note";
-    workspace.appendChild(textArea);
+    const newTextArea = document.createElement('textarea'); 
+    newTextArea.className = "notes";
+    newTextArea.placeholder = "Empty Note";
+    workspace.appendChild(newTextArea); 
     workspace.appendChild(btn);
-    taskList.push(textArea.value);
-    changeLocaleStorage();
-    console.log(taskList);
+    newTextArea.addEventListener("dblclick", removeNote); 
+    taskList.push(newTextArea.value); 
+    changeLocalStorage();
 }
 
 btn.addEventListener("click", noteCreator);
 
-workspace.addEventListener("dblclick", (e)=> {
-    if (e.target.classList.contains('notes')) {
-        const index = taskList.indexOf(e.target.value); // Find the index of the note
-        taskList.splice(index, 1); // Remove the note from the taskList array
-        e.target.remove();
-        changeLocaleStorage();
-    }
-})
+function removeNote(e) {
+    const index = taskList.indexOf(e.target.value); 
+    taskList.splice(index, 1); 
+    e.target.remove();
+    changeLocalStorage();
+}
 
-
-function changeLocaleStorage(){
+function changeLocalStorage(){
     localStorage.setItem('taskList', JSON.stringify(taskList));
 }
 
-//-------------------------------------------------
+console.log(taskList);
