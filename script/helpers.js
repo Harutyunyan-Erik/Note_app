@@ -1,10 +1,10 @@
-const createListener = (tagId, event, callBack) => {
-    const tag = document.getElementById(tagId);
-    tag.addEventListener(event, callBack);
-}
+// const createListener = (tagId, event, callBack) => {
+//     const tag = document.getElementById(tagId);
+//     tag.addEventListener(event, callBack);
+// }
 
 
 
-export {
-    createListener
-}
+// export {
+//     createListener
+// }
